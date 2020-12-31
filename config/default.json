@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://user01:XGZoO4znMtBJJ2mY@cluster0.d2ddd.mongodb.net/bradDB?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
+}
