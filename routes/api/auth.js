@@ -19,11 +19,11 @@ router.get('/', auth, async(req, res) => {
 
     } catch (err) {
         console.log(err.message)
-        req.statusCode(500).send('Server')
+        req.statusCode(500).send('Server Error')
     }
 })
 
-// @route   POST api/users
+// @route   POST api/auth
 // @desc    Authenticate user & get token
 // @access  Public
 router.post('/', [
@@ -36,7 +36,7 @@ router.post('/', [
             return res.status(400).json({ errors: errors.array() })
         }
 
-        const { name, email, password } = req.body
+        const { email, password } = req.body
 
         try {
             let user = await User.findOne({ email })
@@ -45,12 +45,12 @@ router.post('/', [
                 return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
             }
 
-
             const isMatch = await bcrypt.compare(password, user.password)
 
             if (!isMatch) {
                 return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
             }
+
             // Return jsonwebtoken
             const payload = {
                 user: {
