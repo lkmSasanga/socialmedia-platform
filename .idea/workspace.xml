@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93865a76-10cc-424e-805b-5c5d8c445375" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/default.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1mPeK6AcRweAAKVOaq2aijLbeE4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,7 +54,9 @@
       <workItem from="1609399611432" duration="12373000" />
       <workItem from="1609468045154" duration="1379000" />
       <workItem from="1614450247822" duration="704000" />
-      <workItem from="1614486743455" duration="21119000" />
+      <workItem from="1614486743455" duration="21357000" />
+      <workItem from="1614534234322" duration="298000" />
+      <workItem from="1614602933386" duration="937000" />
     </task>
     <servers />
   </component>
@@ -70,6 +73,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614515145325">
