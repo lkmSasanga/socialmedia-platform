@@ -7,9 +7,9 @@ const Post = require('../../models/Post');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-// @route   GET api/posts
-// @desc    Posts route
-// @access  Public
+// @route   POST api/posts
+// @desc    Create a post
+// @access  Private
 router.post('/', auth,  check('text', 'Text is required').notEmpty(), async (req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
@@ -36,5 +36,9 @@ router.post('/', auth,  check('text', 'Text is required').notEmpty(), async (req
 
 
 });
+
+// @route   GET api/posts
+// @desc    Posts route
+// @access  Public
 
 module.exports = router;
