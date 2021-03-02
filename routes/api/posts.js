@@ -84,7 +84,7 @@ router.delete('/:id', [auth, checkObjectId('id')], async (req, res) => {
         }
 
         // Check user
-        if (typeof post.user == "undefined" || post.user.toString() !== req.user.id) {
+        if (post.user !== req.user.id.parseInt) {
             return res.status(401).json({ msg: 'User not authorized' });
         }
 // typeof post.user == "undefined" ||
