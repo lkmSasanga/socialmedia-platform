@@ -11,7 +11,9 @@ const checkObjectId = require('../../middleware/checkObjectId');
 // @route   POST api/posts
 // @desc    Create a post
 // @access  Private
-router.post('/', auth,  check('text', 'Text is required').notEmpty(), async (req, res) => {
+router.post('/', auth,
+    check('text', 'Text is required').notEmpty(),
+    async (req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -146,4 +148,41 @@ router.put('/unlike/:id', auth, async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
+// @route   POST api/posts/comment/:id
+// @desc    Comment on a post
+// @access  Private
+router.post('/comment/:id', auth,
+    check('text', 'Text is required').notEmpty(),
+    async (req, res) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        try{
+            const user = await User.findById(req.user.id).select('-password');
+            const post = await Post.findById(req.params.id);
+
+            const newComment = {
+                text: req.body.text,
+                name: user.name,
+                avatar: user.avatar,
+                user: req.body.id
+            };
+
+            post.comments.unshift(newComment); // add new comment to front to the comment
+
+            await post.save();
+
+            res.json(post.comments);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send('Server Error');
+        }
+
+
+    });
+
+
 module.exports = router;
